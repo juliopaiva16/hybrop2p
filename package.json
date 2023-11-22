@@ -1,0 +1,18 @@
+{
+  "name": "hybrop2p",
+  "version": "1.0.0",
+  "description": "en: Hybrid broker-person oriented file sharing on P2P networks pt-br: Compartilhador de arquivos híbrido orientado à arquitetura broker-based sobre redes P2P",
+  "main": "broker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2"
+  },
+  "type": "module"
+}
