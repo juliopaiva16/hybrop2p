@@ -1,0 +1,10 @@
+{
+  "port": 3002,
+  "database": {
+    "host": "localhost",
+    "port": 5432,
+    "user": "user_instance3",
+    "password": "password_instance3",
+    "database": "db_instance3"
+  }
+}
