@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "sequelize": "^6.35.1",
+    "sqlite3": "^5.1.6"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "start:instance": "npm run start -- --config",
+    "start:instance:1": "npm run start:instance -- ./config/instance1.json",
+    "start:instance:2": "npm run start:instance -- ./config/instance2.json",
+    "start:instance:3": "npm run start:instance -- ./config/instance3.json",
+    "start:instance:4": "npm run start:instance -- ./config/instance4.json",
+    "start:all": "npm run start:instance:1 && npm run start:instance:2 && npm run start:instance:3 && npm run start:instance:4"
+  }
+}
