@@ -127,18 +127,18 @@ class SearchEngine:
         document_type=None,
     ):
         # Construa a consulta base
-        query_string = f"content:{Stemmer().stem_query(query)}"
-        query_string += f" OR title:{Stemmer().stem_query(query)}"
-        query_string += f" OR keywords:{Stemmer().stem_query(query)}"
+        query_string = f"content:{(query)}"
+        query_string += f" OR title:{(query)}"
+        query_string += f" OR keywords:{(query)}"
 
         # Adicione filtros dinamicamente
         if publish_date_from and publish_date_to:
             publish_date = f"[{publish_date_from} TO {publish_date_to}]"
             query_string += f" AND publish_date:{publish_date}"
         if authors:
-            query_string += f" AND authors:{Stemmer().stem_query(authors)}"
+            query_string += f" AND authors:{(authors)}"
         if document_type:
-            query_string += f" AND type:{Stemmer().stem_query(document_type)}"
+            query_string += f" AND type:{(document_type)}"
 
         # Faz o parse da consulta
         parsed_query = MultifieldParser(
@@ -175,11 +175,13 @@ print(f"Total de documentos: {len(documents)}")
 for document in documents:
     search_engine.index_document(document)
 
+search_engine.searcher = search_engine.searcher.refresh()
+
 # print quantidade de documentos indexados
-print(f"Quantidade de documentos indexados: {search_engine.searcher.doc_count()}")
+print(f"Quantidade de documentos indexados: {search_engine.searcher.doc_count_all()}")
 
 # Realizar uma consulta de exemplo
-search_engine.search("interpolation")
+search_engine.search("sistemas")
 
 # Lembre-se de fechar o SearchEngine após o uso
 search_engine.close()
